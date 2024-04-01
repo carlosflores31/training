@@ -1,0 +1,20 @@
+{
+    "metas_actividad_fisica": [
+        {
+            "Día": "31-03-2024",
+            "Kcal": "310 kcal",
+            "Tiempo": "54 min",
+            "Distancia": "12.77 km",
+            "Velocidad_media": "13.9 km/h",
+            "Frecuencia": "100 lpm"
+        },
+        {
+            "Día": "14-01-2024",
+            "Kcal": "300 kcal",
+            "Tiempo": "75 min",
+            "Distancia": "19.01 km",
+            "Velocidad_media": "15.2 km/h",
+            "Frecuencia": "100 lpm"
+        }
+    ]
+}
