@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Distancia</title>
+    <!-- Importa Chart.js desde la CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 0 auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+
+	//fetch('./ciclismo.json')
+	  //  .then((response) => response.json())
+	    // .then((jsonData) => console.log(jsonData));
+
+
+	
+	fetch('./ciclismo.json').then(response => {
+		  return response.json();
+	}).then(jsonData => {
+		  console.log(jsonData);
+
+// Extraer etiquetas y datos
+        const labels = jsonData1.map(item => item.Día);
+        const data = jsonData1.map(item => item.Distancia);
+
+        // Configuración del gráfico
+        const config = {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Distancia (km)',
+                    data: data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)', // Color de las barras
+                    borderColor: 'rgba(75, 192, 192, 1)', // Borde de las barras
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Distancia (km)'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Crear el gráfico
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, config);
+	}).catch(err => {
+	  // Do something for an error here
+	});
+
+        
+    </script>
+</body>
+</html>
