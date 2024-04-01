@@ -3,68 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gráfico de Distancia</title>
-    <!-- Importa Chart.js desde la CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <title>Metas de Actividad Física</title>
+    <!-- Agrega el enlace a Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Estilos personalizados (si es necesario) */
+    </style>
 </head>
-<body>
-
-	<h1> hola </h1>
-    <div style="max-width: 600px; margin: 0 auto;">
-        <canvas id="myChart"></canvas>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Metas de Actividad Física</h1>
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2">Día</th>
+                    <th class="p-2">Kcal</th>
+                    <th class="p-2">Tiempo</th>
+                    <th class="p-2">Distancia</th>
+                    <th class="p-2">Velocidad media</th>
+                    <th class="p-2">Frecuencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-2">31-03-2024</td>
+                    <td class="p-2">310 kcal</td>
+                    <td class="p-2">54 min</td>
+                    <td class="p-2">12.77 km</td>
+                    <td class="p-2">13.9 km/h</td>
+                    <td class="p-2">100 lpm</td>
+                </tr>
+                <tr>
+                    <td class="p-2">14-01-2024</td>
+                    <td class="p-2">300 kcal</td>
+                    <td class="p-2">75 min</td>
+                    <td class="p-2">19.01 km</td>
+                    <td class="p-2">15.2 km/h</td>
+                    <td class="p-2">100 lpm</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Gráfico de barras (ejemplo) -->
+        <div class="mt-4">
+            <div class="bg-blue-500 h-4 w-40"></div> <!-- Cambia el ancho según tus datos -->
+        </div>
     </div>
-
-    <script>
-
-	//fetch('./ciclismo.json')
-	  //  .then((response) => response.json())
-	    // .then((jsonData) => console.log(jsonData));
-
-
-	
-	fetch('./ciclismo.json').then(response => {
-		  return response.json();
-	}).then(jsonData => {
-		  console.log(jsonData);
-
-// Extraer etiquetas y datos
-        const labels = jsonData1.map(item => item.Día);
-        const data = jsonData1.map(item => item.Distancia);
-
-        // Configuración del gráfico
-        const config = {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Distancia (km)',
-                    data: data,
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)', // Color de las barras
-                    borderColor: 'rgba(75, 192, 192, 1)', // Borde de las barras
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Distancia (km)'
-                        }
-                    }
-                }
-            }
-        };
-
-        // Crear el gráfico
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, config);
-	}).catch(err => {
-	  // Do something for an error here
-	});
-
-        
-    </script>
 </body>
 </html>
